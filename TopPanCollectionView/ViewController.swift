@@ -9,12 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var  topCollectBottomV:topCollectButtomView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.view.backgroundColor = UIColor.yellow
+        
+        self.automaticallyAdjustsScrollViewInsets = false
+        self.initTopButtomView()
     }
 
+    
+    func initTopButtomView(){
+        self.topCollectBottomV = topCollectButtomView(frame: CGRect(x: 0, y:((self.navigationController?.navigationBar.bounds.height)!+UIApplication.shared.statusBarFrame.height), width: self.view.bounds.width, height: 100))
+        
+        self.view.addSubview(topCollectBottomV)
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
